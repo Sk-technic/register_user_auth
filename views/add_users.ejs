@@ -1,0 +1,35 @@
+<%- include('layout/header') %>
+
+    <title>
+        <%= title %>
+    </title>
+    <main class=" w-full h-fit flex justify-center items-centre">
+        <section class=" w-full h-fit flex justify-center items-centre">
+            <form action="/add" method="post" id="add-form"
+             class="flex flex-col border-t-20 mt-20 border-sky-500 rounded-lg justify-center items-center p-5 gap-5 bg-white w-[350px] text-zinc-700"
+             enctype="multipart/form-data"
+             >
+             <h2 class="text-2xl font-bold text-zinc-600">Register Data</h2>
+                <div class="w-full  flex flex-col gap-1 justify-center items-start">
+                    <label for="name" class="text-xs">Name</label>
+                    <input type="text" name="name" class="w-full outline-none border py-2 text-[12px] border-zinc-300 px-1 pr-10 placeholder:text-sm" placeholder="Enter name" required>
+                </div>
+                <div class="w-full  flex flex-col gap-1 justify-center items-start">
+                    <label for="email" class="text-xs">email</label>
+                    <input type="email" name="email" class="w-full outline-none border py-2 text-[12px] border-zinc-300 px-1 pr-10 placeholder:text-sm" placeholder="Enter email" required>
+                </div>
+                <div class="w-full  flex flex-col gap-1 justify-center items-start">
+                    <label for="phone" class="text-xs">phone</label>
+                    <input type="tel" name="phone" class="w-full outline-none border py-2 text-[12px] border-zinc-300 px-1 pr-10 placeholder:text-sm" placeholder="Enter phone" required>
+                </div>
+                <div class="w-full  flex flex-col gap-1 justify-center items-start">
+                    <label for="image" class="text-xs">Select image</label>
+                    <input type="file" name="image" class=" bg-zinc-300 font-semibold w-full py-2 text-[12px] border-zinc-300 px-1 pr-10 "  required>
+                </div>
+                <div class="w-full  flex flex-col gap-1 justify-center items-start">
+                    <input type="submit" name="submit" class="hover:bg-lime-600 duration-300 bg-sky-600 text-lg w-full py-2 text-white font-semibold border-zinc-300 " value="Add User">
+                </div>
+
+            </form>
+        </section>
+    </main>

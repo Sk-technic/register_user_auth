@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('layout/header') %>
+
+        <% if (message && message.type) { %>
+            <div   class="bg-gradient-to-r from-lime-400 to-yellow-400 p-2 flex flex-col justify-start mx-20 mt-5 rounded-md ">
+                <span class="text-lg"><%= message.type %></span>
+                <strong class="text-md"><%= message.content %></strong>
+            </div>
+        <% } %>
+
+        <main class="flex justify-center items-center p-10">
+            <% if (users !== "" && users.length > 0) { %>
+                <table class="bg-zinc-50 text-zinc-600">
+                    <thead>
+                        <tr class="bg-zinc-500 text-white">
+                            <th scope="col">ID</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% users.forEach((row, index) => { %>
+                            <tr>
+                                <td><%= index*2 +2*3 /2 %></td>
+                                <td><img src="<%= row.image %>" alt="User Image" class="w-10 "></td>
+                                <td><%= row.name %></td>
+                                <td><%= row.email %></td>
+                                <td><%= row.phone %></td>
+                                <td>
+                                    <a href="/edit/<%= row._id %>">Edit</a>
+                                    <a href="/delete/<%= row._id %>">Delete</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <h1 class="text-center">No user found in the database!</h1>
+            <% } %>
+        </main>
+        
+</html>
